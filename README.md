@@ -1,8 +1,10 @@
-<h1>ExpNo 2 : Implement Depth First Search Traversal of a Graph</h1> 
-<h3>Name: </h3>
-<h3>Register Number:     </h3>
+<h1>Ex.no 2 : Implement Depth First Search Traversal of a Graph</h1> 
+<h3>Name: Subbiah S</h3>
+<h3>Register Number:  212223220111  </h3>
+
 <H3>Aim:</H3>
 <p> To Implement Depth First Search Traversal of a Graph using Python 3.</p>
+
 <h3>Theory:</h3>
 <strong>Depth First Traversal </strong>(or DFS) for a graph is like Depth First Traversal of a tree. The only catch here is that, unlike trees, graphs may contain cycles (a node may be visited twice). Use a Boolean visited array to avoid processing a node more than once. A graph can have more than one DFS traversal. 
 Depth-first search is an algorithm for traversing or searching trees or graph data structures. The algorithm starts at the root node (selecting some arbitrary node as the root node in the case of a graph) and explores as far as possible along each branch before backtracking.
@@ -88,8 +90,46 @@ F H <BR>
 <hr>
 ['0', '1', '2', '3', '4']
 
+## PROGRAM:
+```
+
+from collections import defaultdict
+def dfs(graph,start,visited,path):
+    path.append(start)
+    visited[start]=True
+    for neighbour in graph[start]:
+       #type ur code here
+       if not visited[neighbour]:
+        dfs(graph,neighbour,visited,path)
+    return path
+graph=defaultdict(list)
+n,e=map(int,input().split())
+for i in range(e):
+   #type ur code here
+    u,v=input().split()
+    graph[u].append(v)
+    graph[v].append(u)
+#print(graph)
+start='A'
+visited=defaultdict(bool)
+ #type ur code here
+path=[]
+traversedpath=dfs(graph,start,visited,path)
+print(traversedpath)
+
+
+```
+
+
+## PROGRAM OUTPUT:
+
+<img width="1536" height="1024" alt="ChatGPT Image Feb 9, 2026, 01_42_10 PM" src="https://github.com/user-attachments/assets/556c2d35-83df-40a1-bfd6-46459dcff464" />
+
+
+
+
+
 <hr>
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
-
